@@ -18,7 +18,7 @@ jobs:
     - name: build
       run: |
         ls -la
-        apt-get install qemu-user-static
+        sudo apt-get install qemu-user-static
         which qemu-arm-static || true
         apt-cache qemu-user-static || true
         dpkg -L qemu-user-static || true
