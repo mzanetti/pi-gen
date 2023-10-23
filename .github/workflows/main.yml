@@ -1,4 +1,4 @@
-name: nymea Raspberry Image
+name: nymea Raspberry Image - bullseye
 
 on:
   push:
