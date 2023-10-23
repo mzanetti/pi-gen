@@ -8,7 +8,7 @@ on:
 
 jobs:
   image:
-    name: build image
+    name: build bookworm image
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v3
@@ -22,8 +22,14 @@ jobs:
         dpkg -L qemu-user-static || true
         ./build-docker.sh
         ls -la
+    - name: Create Release
+      uses: ncipollo/release-action@v1.13.0
+      with:
+        draft: true
+        artifacts: deploy/image*zip
+        name: nymea-image
     - name: archive artifacts
       uses: actions/upload-artifact@v3.1.3
       with:
-        name: nymea image
+        name: nymea image - bookworm
         path: deploy/image*zip
