@@ -1,4 +1,4 @@
-name: nymea Raspberry Image
+name: nymea Raspberry Image - bookworm
 
 on:
   push:
@@ -17,6 +17,9 @@ jobs:
     - name: build
       run: |
         ls -la
+        which qemu-arm-static || true
+        apt-cache qemu-user-static || true
+        dpkg -L qemu-user-static || true
         ./build-docker.sh
         ls -la
     - name: archive artifacts
