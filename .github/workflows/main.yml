@@ -18,6 +18,9 @@ jobs:
     - name: build
       run: |
         ls -la
+        which qemu-arm-static
+        apt-cache qemu-user-static
+        dpkg -L qemu-user-static
         ./build-docker.sh
         ls -la
     - name: archive artifacts
