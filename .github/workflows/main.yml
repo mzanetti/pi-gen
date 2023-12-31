@@ -16,7 +16,7 @@ jobs:
     - name: setup build environment
       uses: docker/setup-qemu-action@v3.0.0
       with:
-        platform: arm64
+        platforms: arm64
     - name: build
       run: |
         ls -la
