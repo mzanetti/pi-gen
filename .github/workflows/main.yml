@@ -20,6 +20,7 @@ jobs:
     - name: build
       run: |
         ls -la
+        sudo apt-get install qemu-user-static
         ./build-docker.sh
         ls -la
     - name: archive artifacts
