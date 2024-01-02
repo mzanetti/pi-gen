@@ -25,8 +25,8 @@ jobs:
       run: |
         ls -la
         sudo apt-get install qemu-user-static
-        echo '${{ github.event.inputs.stage }}'
-        echo ${{ github.event.inputs.stage }}
+        echo Setting repository to \"${{ github.event.inputs.stage }}\"
+        sed -i 's/repository.nymea.io bookworm/repository.nymea.io experimental bookworm/g' nymea/00-sys-tweaks/00-run-chroot.sh
         ./build-docker.sh
         ls -la
     - name: archive artifacts
