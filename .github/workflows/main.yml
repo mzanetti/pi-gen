@@ -6,6 +6,10 @@ on:
     - master
     - nymea-bullseye
   workflow_dispatch:
+    inputs:
+      stage:
+        description: "landing/experimental"
+        required: false
 
 jobs:
   image:
@@ -21,6 +25,8 @@ jobs:
       run: |
         ls -la
         sudo apt-get install qemu-user-static
+        echo '${{ github.event.inputs.stage }}'
+        echo ${{ github.event.inputs.stage }}
         ./build-docker.sh
         ls -la
     - name: archive artifacts
